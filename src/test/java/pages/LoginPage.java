@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
     private WebElement loginButton;
 
 
-    public LoginPage(WebDriver webDriver, String url) {
+    public LoginPage(WebDriver webDriver) {
         super(webDriver);
     }
 
