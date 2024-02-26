@@ -1,15 +1,24 @@
 package tests;
 
-import org.testng.annotations.Parameters;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import pages.*;
 
 public class PurchaseProductTest extends BaseTest{
 
-    @Test
-    @Parameters({"username", "password"})
-    public void test(String username, String password) {
+    @Test(dataProvider = "userData")
+    public void test(String username, String password, String firstName, String lastName, String postalCode) {
         LoginPage loginPage = getLoginPage();
-        loginPage.login(username, password);
+        InventoryPage inventoryPage = loginPage.login(username, password);
+        inventoryPage.addRandomItemToCart();
+
+        CartPage cartPage = inventoryPage.clickOnShoppingCartLink();
+
+        CheckoutStepOnePage checkoutStepOnePage = cartPage.clickOnCheckoutButton();
+
+        CheckoutStepTwoPage checkoutStepTwoPage = checkoutStepOnePage.enterUserData(firstName, lastName, password);
+        CompletedOrderPage completedOrderPage = checkoutStepTwoPage.clickOnFinishButton();
+
+        Assert.assertEquals(completedOrderPage.getCurrentUrl(), FINAL_URL);
     }
 }
