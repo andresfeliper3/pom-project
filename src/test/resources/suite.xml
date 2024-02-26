@@ -2,9 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite">
     <test name="Test">
-        <parameter name="url" value="https://www.wikipedia.org/" />
+        <parameter name="url" value="https://www.saucedemo.com/" />
+        <parameter name="username" value="standard_user" />
+        <parameter name="password" value="secret_sauce" />
         <classes>
-            <class name="test.WikiTest" />
+            <class name="tests.PurchaseProductTest" />
         </classes>
     </test>
 </suite>
