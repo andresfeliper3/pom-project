@@ -22,7 +22,7 @@ public class RemoveProductsFromShoppingCartTest extends BaseTest {
         cartPage.removeAllProducts();
         int removedProductsAmount = cartPage.getRemovedProductsAmount();
 
-        Assert.assertEquals(AMOUNT_OF_ITEMS_TO_ADD, removedProductsAmount);
+        Assert.assertEquals(removedProductsAmount, AMOUNT_OF_ITEMS_TO_ADD);
 
     }
 }

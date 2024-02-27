@@ -16,6 +16,6 @@ public class LogoutTest  extends BaseTest {
         inventoryPage.clickOnNavigationBars();
         LoginPage loginPageAfterLogout = inventoryPage.clickOnLogoutLink();
 
-        Assert.assertEquals(AFTER_LOGOUT_URL, loginPageAfterLogout.getCurrentUrl());
+        Assert.assertEquals(loginPageAfterLogout.getCurrentUrl(), AFTER_LOGOUT_URL);
     }
 }
