@@ -18,6 +18,12 @@ public class InventoryPage extends BasePage {
     @FindBy(css = "a[class=\"shopping_cart_link\"]")
     private WebElement shoppingCartLink;
 
+    @FindBy(id = "react-burger-menu-btn")
+    private WebElement navigationBars;
+
+    @FindBy(id = "logout_sidebar_link")
+    private WebElement logoutLink;
+
     public InventoryPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -31,11 +37,25 @@ public class InventoryPage extends BasePage {
     public void addItemToCart(int index) {
         WebElement randomlySelectedItem = inventoryItems.get(index);
         WebElement addToCartButton = randomlySelectedItem.findElement(new By.ByCssSelector("button"));
-        addToCartButton.click();
+        if(isElementClickable(addToCartButton))
+            addToCartButton.click();
     }
 
     public CartPage clickOnShoppingCartLink() {
-        shoppingCartLink.click();
+        if(isElementClickable(shoppingCartLink))
+            shoppingCartLink.click();
         return new CartPage(webDriver);
     }
+
+    public void clickOnNavigationBars() {
+        if(isElementClickable(navigationBars))
+            navigationBars.click();
+    }
+
+    public LoginPage clickOnLogoutLink() {
+        if(isElementClickable(logoutLink))
+            logoutLink.click();
+        return new LoginPage(webDriver);
+    }
+
 }

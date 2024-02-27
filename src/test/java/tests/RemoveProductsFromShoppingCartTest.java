@@ -13,8 +13,7 @@ public class RemoveProductsFromShoppingCartTest extends BaseTest {
 
     @Test(dataProvider = "userLoginData")
     public void test(String username, String password) {
-        LoginPage loginPage = getLoginPage();
-        InventoryPage inventoryPage = loginPage.login(username, password);
+        InventoryPage inventoryPage = loginAndGetInventoryPage(username, password);
 
         for(int i = 0; i < AMOUNT_OF_ITEMS_TO_ADD; i++) {
             inventoryPage.addItemToCart(i);
