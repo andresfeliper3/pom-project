@@ -3,6 +3,10 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import pages.order.checkout.CheckoutStepOnePage;
+import pages.order.checkout.CheckoutStepTwoPage;
+import pages.order.CartPage;
+import pages.order.CompletedOrderPage;
 import utils.tests.BaseTest;
 
 public class PurchaseProductTest extends BaseTest {

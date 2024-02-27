@@ -1,8 +1,9 @@
-package pages;
+package pages.order.checkout;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.order.CompletedOrderPage;
 import utils.pages.BasePage;
 
 public class CheckoutStepTwoPage extends BasePage {

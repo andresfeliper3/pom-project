@@ -1,4 +1,4 @@
-package pages;
+package pages.order;
 
 import org.openqa.selenium.WebDriver;
 import utils.pages.BasePage;

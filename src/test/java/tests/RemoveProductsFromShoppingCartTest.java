@@ -2,9 +2,8 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CartPage;
+import pages.order.CartPage;
 import pages.InventoryPage;
-import pages.LoginPage;
 import utils.tests.BaseTest;
 
 public class RemoveProductsFromShoppingCartTest extends BaseTest {
