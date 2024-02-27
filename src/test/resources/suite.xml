@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test Suite">
-    <test name="Test">
+    <test name="Test" preserve-order="true">
         <parameter name="url" value="https://www.saucedemo.com/" />
         <classes>
-            <!--<class name="tests.PurchaseProductTest" />-->
+            <class name="tests.PurchaseProductTest" />
             <class name="tests.RemoveProductsFromShoppingCartTest"/>
+            <class name="tests.LogoutTest"/>
         </classes>
     </test>
 </suite>

@@ -14,7 +14,8 @@ public class CheckoutStepTwoPage extends BasePage {
     }
 
     public CompletedOrderPage clickOnFinishButton() {
-        finishButton.click();
+        if(isElementClickable(finishButton))
+            finishButton.click();
         return new CompletedOrderPage(webDriver);
     }
 }

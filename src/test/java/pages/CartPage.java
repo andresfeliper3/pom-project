@@ -24,13 +24,15 @@ public class CartPage extends BasePage {
     }
 
     public CheckoutStepOnePage clickOnCheckoutButton() {
-        checkoutButton.click();
+        if(isElementClickable(checkoutButton))
+            checkoutButton.click();
         return new CheckoutStepOnePage(webDriver);
     }
 
     public void removeAllProducts() {
         for(WebElement removeButton : removeButtons) {
-            removeButton.click();
+            if(isElementClickable(removeButton))
+                removeButton.click();
         }
     }
 
