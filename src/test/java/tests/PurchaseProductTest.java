@@ -7,7 +7,9 @@ import utils.tests.BaseTest;
 
 public class PurchaseProductTest extends BaseTest {
 
-    @Test(dataProvider = "userData")
+    public static final String FINAL_URL = "https://www.saucedemo.com/checkout-complete.html";
+
+    @Test(dataProvider = "userLoginAndFakePurchaseData")
     public void test(String username, String password, String firstName, String lastName, String postalCode) {
         LoginPage loginPage = getLoginPage();
         InventoryPage inventoryPage = loginPage.login(username, password);
