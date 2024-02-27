@@ -3,8 +3,9 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
+import utils.tests.BaseTest;
 
-public class PurchaseProductTest extends BaseTest{
+public class PurchaseProductTest extends BaseTest {
 
     @Test(dataProvider = "userData")
     public void test(String username, String password, String firstName, String lastName, String postalCode) {
