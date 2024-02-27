@@ -4,7 +4,8 @@
     <test name="Test">
         <parameter name="url" value="https://www.saucedemo.com/" />
         <classes>
-            <class name="tests.PurchaseProductTest" />
+            <!--<class name="tests.PurchaseProductTest" />-->
+            <class name="tests.RemoveProductsFromShoppingCartTest"/>
         </classes>
     </test>
 </suite>

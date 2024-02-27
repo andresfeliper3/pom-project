@@ -25,7 +25,11 @@ public class InventoryPage extends BasePage {
     public void addRandomItemToCart() {
         Random random = new Random();
         int randomNumber = random.nextInt(6);
-        WebElement randomlySelectedItem = inventoryItems.get(randomNumber);
+        addItemToCart(randomNumber);
+    }
+
+    public void addItemToCart(int index) {
+        WebElement randomlySelectedItem = inventoryItems.get(index);
         WebElement addToCartButton = randomlySelectedItem.findElement(new By.ByCssSelector("button"));
         addToCartButton.click();
     }

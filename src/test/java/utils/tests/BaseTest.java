@@ -10,29 +10,49 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import pages.LoginPage;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BaseTest {
 
     public static final String DRIVER_PATH = "utils/chromedriver.exe";
     public static final String USERNAME = "standard_user";
     public static final String PASSWORD = "secret_sauce";
-    public static final String FINAL_URL = "https://www.saucedemo.com/checkout-complete.html";
     protected WebDriver webDriver;
+
+    protected Faker faker;
+
 
     @BeforeTest
     @Parameters({"url"})
     public void setup(String url) {
         System.getProperty("webdriver.chrome.driver", DRIVER_PATH);
         webDriver = new ChromeDriver();
+        faker = new Faker();
         navigateTo(url);
     }
 
-    @DataProvider(name = "userData")
+    @DataProvider(name = "userLoginData")
+    public Object[][] getUserLoginData() {
+        return new Object[][] {{USERNAME, PASSWORD}};
+    }
+
+    @DataProvider(name = "userLoginAndFakePurchaseData")
     public Object[][] getUserData() {
-        Faker faker = new Faker();
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String postalCode = faker.address().zipCode();
-        return new Object[][] {{USERNAME, PASSWORD, firstName, lastName, postalCode}};
+        return new Object[][] {{USERNAME, PASSWORD, generateFakeFirstName(), generateFakeLastName(), generateFakeZipCode()}};
+    }
+
+
+    private String generateFakeFirstName() {
+        return faker.name().firstName();
+    }
+
+    private String generateFakeLastName() {
+        return faker.name().lastName();
+    }
+
+    private String generateFakeZipCode() {
+        return faker.address().zipCode();
     }
 
     public LoginPage getLoginPage() {
@@ -45,7 +65,7 @@ public class BaseTest {
 
     @AfterTest
     public void close() {
-        webDriver.close();
+        //webDriver.close();
     }
 
 }
