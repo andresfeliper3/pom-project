@@ -65,7 +65,7 @@ public class BaseTest {
 
     @AfterMethod
     public void close() {
-        webDriver.close();
+        webDriver.quit();
     }
 
 }
